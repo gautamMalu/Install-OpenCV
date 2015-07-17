@@ -25,8 +25,15 @@ install_dependency libxine2-dev
 install_dependency libgstreamer0.10-dev
 install_dependency libgstreamer-plugins-base0.10-dev
 install_dependency libv4l-dev
+install_dependency libpng12-dev 
+install_dependency libtiff4-dev 
+install_dependency libjasper-dev 
+install_dependency libavcodec-dev 
+install_dependency libavformat-dev 
+install_dependency libswscale-dev
 install_dependency python-dev
 install_dependency python-numpy
+install_dependency python-matplotlib
 install_dependency libtbb-dev
 install_dependency libqt4-dev
 install_dependency libgtk2.0-dev

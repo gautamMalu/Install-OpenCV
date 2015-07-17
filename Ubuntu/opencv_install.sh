@@ -31,6 +31,8 @@ mkdir -p $dldir
 cd $dldir
 wget -O $downloadfile http://sourceforge.net/projects/opencvlibrary/files/opencv-unix/$version/$downloadfile/download
 
+
+echo "--- Downloading OpenCV Contrib modules"
 git clone https://github.com/itseez/opencv_contrib
 git checkout $version
 
@@ -44,7 +46,7 @@ fi
 cd opencv-$version
 mkdir build
 cd build
-cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D WITH_CUBLAS=ON -D WITH_CUFFT=ON -D WITH_EIGEN=OFF -D WITH_OPENGL=ON -D WITH_QT=ON -D WITH_TBB=ON -D BUILD_DOCS=ON -D BUILD_EXAMPLES=ON -D BUILD_TESTS=ON -D CUDA_ARCH_BIN="3.0" -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules .. -DBUILD_opencv_cvv=OFF
+cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D WITH_CUBLAS=ON -D WITH_CUFFT=ON -D BUILD_NEW_PYTHON_SUPPORT=ON -D WITH_EIGEN=OFF -D WITH_OPENGL=ON -D WITH_QT=ON -D WITH_TBB=ON -D BUILD_DOCS=ON -D BUILD_EXAMPLES=ON -D BUILD_TESTS=ON -D  INSTALL_C_EXAMPLES=ON -D INSTALL_PYTHON_EXAMPLES=ON  -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules .. -DBUILD_opencv_cvv=OFF
 n_cores=`nproc`
 make -j$n_cores
 sudo make install
